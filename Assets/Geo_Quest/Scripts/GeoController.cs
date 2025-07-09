@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
-using UnityEditor;
+
 using UnityEngine;
 
 public class NewScript : MonoBehaviour
 {
+    string variableone = ("Hello ");
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(“Hello World”);
+        string variabletwo = ("World");
+        Debug.Log(variableone +variabletwo);
     }
 
     // Update is called once per frame
