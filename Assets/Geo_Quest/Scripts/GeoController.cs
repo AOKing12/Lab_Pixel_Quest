@@ -19,8 +19,8 @@ public class NewScript : MonoBehaviour
     void Update()
     {
         float xInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(xInput*speed, rb.velocity.y);
-
+        rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
+    }
 
 
 
@@ -34,9 +34,9 @@ public class NewScript : MonoBehaviour
         //      rb.velocity = new Vector2(1, rb.velocity.x);
         //  }
 
-        private void OnTriggerEnter2D(Collider2D, collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            {
+            
 
             }
         private void OnTriggerStay2D(Collider2D collision)
@@ -48,4 +48,4 @@ public class NewScript : MonoBehaviour
         
         }
 }
-}
+
