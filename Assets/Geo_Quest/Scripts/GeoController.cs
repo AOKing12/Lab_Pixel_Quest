@@ -9,6 +9,7 @@ public class NewScript : MonoBehaviour
     private Rigidbody2D rb;
     int varTwo = 3;
     public int speed = 3;
+    public string nextLevel = "Scene_1 COPY";
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,13 @@ public class NewScript : MonoBehaviour
                     Debug.Log("Player has died");
                     break;
                 }
-       
+            case "Finish":
+                {
+                
+                    SceneManager.LoadScene(nextLevel);
+                    Debug.Log("Player has finished the level");
+                    break;
+                }
         }
         
             }
