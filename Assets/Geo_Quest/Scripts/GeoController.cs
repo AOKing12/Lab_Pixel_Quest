@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewScript : MonoBehaviour
 {
@@ -36,8 +37,18 @@ public class NewScript : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            
-
+            switch (collision.tag)
+        {
+            case "Death":
+                {
+                    string thisLevel = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thisLevel);
+                    Debug.Log("Player has died");
+                    break;
+                }
+       
+        }
+        
             }
         private void OnTriggerStay2D(Collider2D collision)
         {
