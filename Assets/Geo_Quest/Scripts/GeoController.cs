@@ -24,12 +24,23 @@ public class NewScript : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
 
-        sr.color = new Color(.25f, 0.5f, 0.75f);
-
        
-     
 
-      
+     if (Input.GetKeyDown (KeyCode.Alpha1))
+            {
+            sr.color = new Color(1f, 0f, 0f); // Red color
+        }
+     
+    if (Input.GetKeyDown (KeyCode.Alpha2))
+            {
+            sr.color = new Color(0f, 1f, 0f); // Green color
+        }
+     if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            sr.color = new Color(0f, 0f, 1f); // Blue color
+        }
+
+
     }
 
 
