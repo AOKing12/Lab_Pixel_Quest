@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Pixel_Quest/Scenes/Pixel_Quest_TestLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Geo_Quest/Scenes/Scene_1.unity
+    path: Assets/Geo_Quest/Scenes/GeoQuest 1.unity
     guid: 388c90d89e3f57549b9aa2d8de45e14d
   - enabled: 1
-    path: Assets/Geo_Quest/Scenes/Scene_1 COPY.unity
-    guid: 8952c96dfa2923240adb87f75addce44
+    path: Assets/Geo_Quest/Scenes/GeoQuest 2.unity
+    guid: cb8c118f05a86e44297f45eb76223212
   - enabled: 0
     path: Assets/Scenes/Level_2.unity
     guid: f9555ef8cf6b50447922872cea2af702

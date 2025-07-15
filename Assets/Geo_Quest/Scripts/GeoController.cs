@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class NewScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     int varTwo = 3;
     public int speed = 3;
-    public string nextLevel = "Scene_1 COPY";
+    public string nextLevel = "GeoQuest 2";
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-       
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -22,6 +23,13 @@ public class NewScript : MonoBehaviour
     {
         float xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
+
+        sr.color = new Color(.25f, 0.5f, 0.75f);
+
+       
+     
+
+      
     }
 
 
