@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  nextLevel: GeoQuest 2
+  nextLevel: GeoQuest 3
 --- !u!212 &667758717
 SpriteRenderer:
   m_ObjectHideFlags: 0
