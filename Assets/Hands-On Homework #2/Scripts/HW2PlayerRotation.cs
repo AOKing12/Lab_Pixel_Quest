@@ -24,4 +24,3 @@ public class HW2PlayerRotation : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
     }
 }
-//At point 9:41 of video
