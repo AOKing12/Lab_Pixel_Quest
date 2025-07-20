@@ -35,10 +35,19 @@ public class HW2PlayerShoot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && _canShoot)
         {
+            preFab = Resources.Load<GameObject>("Prefabs/Bullet");
             GameObject bullet = Instantiate(preFab, bulletSpawn.position, Quaternion.identity);
 
             bullet.transform.SetParent(bulletTrash);
 
+            _canShoot = false;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && _canShoot)
+        {
+            preFab = Resources.Load<GameObject>("Prefabs/BigBullet");
+            GameObject bullet = Instantiate(preFab, bulletSpawn.position, Quaternion.identity);
+            bullet.transform.SetParent(bulletTrash);
             _canShoot = false;
         }
     }
