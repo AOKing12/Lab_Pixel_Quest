@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public string nextlevel = "GeoLevel_2";
+    private int coinCounter = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +23,12 @@ public class PlayerStats : MonoBehaviour
                     SceneManager.LoadScene(thislevel);
                     break;
                 }
-               
+            case "Coin":
+                {
+                    coinCounter++;
+                    Destroy(collision.gameObject);
+                    break;
+                }
         }
     }
 }
