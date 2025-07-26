@@ -5,9 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-    private int _coinCounter = 0;
+    public int _coinCounter = 0;
+    private int coinsInLevel = 0;
     public int _health = 3;
     public Transform RespawnPoint;
+    public int _MaxHealth = 3;
+
+    private PlayerUIController _playerUIController;
+
+    private void Start()
+    {
+        coinsInLevel = GameObject.Find("Coins").transform.childCount;
+        _playerUIController = GetComponent<PlayerUIController>();
+        _playerUIController.UpdateHealth(_health, _MaxHealth);
+        _playerUIController.UpdateCoin(_coinCounter + "/" + coinsInLevel);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +34,7 @@ public class PlayerStats : MonoBehaviour
             case "Death":
                 {
                     _health--;
+                    _playerUIController.UpdateHealth(_health, _MaxHealth);
                     if (_health <= 0)
                     {
                         string thisLevel = SceneManager.GetActiveScene().name;
@@ -36,6 +49,7 @@ public class PlayerStats : MonoBehaviour
             case "Coin":
                 {
                     _coinCounter++;
+                    _playerUIController.UpdateCoin(_coinCounter + "/" + coinsInLevel);
                     Destroy(collision.gameObject);
                     break;
                 }
@@ -44,6 +58,7 @@ public class PlayerStats : MonoBehaviour
                     if (_health < 3)
                     {
                         _health++;
+                        _playerUIController.UpdateHealth(_health, _MaxHealth);
                         Destroy(collision.gameObject);
                     }
                     break;
