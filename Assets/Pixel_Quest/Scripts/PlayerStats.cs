@@ -15,10 +15,13 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        coinsInLevel = GameObject.Find("Coins").transform.childCount;
         _playerUIController = GetComponent<PlayerUIController>();
+        _playerUIController.StartUI();
         _playerUIController.UpdateHealth(_health, _MaxHealth);
         _playerUIController.UpdateCoin(_coinCounter + "/" + coinsInLevel);
+        coinsInLevel = GameObject.Find("Coins").transform.childCount;
+ 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

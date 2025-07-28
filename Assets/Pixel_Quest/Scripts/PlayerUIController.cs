@@ -9,7 +9,7 @@ public class PlayerUIController : MonoBehaviour
     public Image heartImage;
     public TextMeshProUGUI coinText;
     // Start is called before the first frame update
-    private void Start()
+    public void StartUI()
     {
         heartImage = GameObject.Find("heartImage").GetComponent<Image>();
         coinText = GameObject.Find("coinText").GetComponent<TextMeshProUGUI>();
@@ -25,4 +25,4 @@ public class PlayerUIController : MonoBehaviour
         coinText.text = newText;
     }
 }
-//continue at slide 49
+
