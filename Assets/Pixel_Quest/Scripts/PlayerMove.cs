@@ -22,8 +22,7 @@ public class PlayerMov : MonoBehaviour
 
         _rigidbody2D.velocity = new Vector2(xMovement * speed, _rigidbody2D.velocity.y);
 
-        if (xMovement > 0) { _spriteRenderer.flipX = true; }
-        else if (xMovement < 0) { _spriteRenderer.flipX = false; }
+       
     }
 
 }
