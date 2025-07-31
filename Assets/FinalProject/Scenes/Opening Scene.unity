@@ -610,7 +610,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1502870977}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_TargetAssemblyTypeName: SubwayMenu, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1502870977}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 1
@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 1502870976}
   - component: {fileID: 1502870977}
   m_Layer: 0
-  m_Name: MenuController
+  m_Name: SubwayMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,7 +908,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502870975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024605d1da2213f4094fc606b5abcb44, type: 3}
+  m_Script: {fileID: 11500000, guid: 7559a080c62fa64419cad9629b154f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: Level 1
@@ -1216,7 +1216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1502870977}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_TargetAssemblyTypeName: SubwayMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
