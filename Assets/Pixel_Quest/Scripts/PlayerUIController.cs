@@ -11,8 +11,8 @@ public class PlayerUIController : MonoBehaviour
     // Start is called before the first frame update
     public void StartUI()
     {
-        heartImage = GameObject.Find("heartImage").GetComponent<Image>();
-        coinText = GameObject.Find("coinText").GetComponent<TextMeshProUGUI>();
+        //heartImage = GameObject.Find("heartImage").GetComponent<Image>();
+       // coinText = GameObject.Find("coinText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

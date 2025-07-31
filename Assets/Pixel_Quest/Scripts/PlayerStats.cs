@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     public int _health = 3;
     public Transform RespawnPoint;
     public int _MaxHealth = 3;
-
+    public ShopMenu shopMenu;
     private PlayerUIController _playerUIController;
 
     private void Start()
@@ -37,6 +37,7 @@ public class PlayerStats : MonoBehaviour
             case "Death":
                 {
                     _health--;
+                    shopMenu.MenuOnOff(true);
                     _playerUIController.UpdateHealth(_health, _MaxHealth);
                     if (_health <= 0)
                     {

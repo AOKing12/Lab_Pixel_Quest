@@ -25,4 +25,10 @@ public class PlayerMov : MonoBehaviour
        
     }
 
+    public void UpgradeTrain(int additionalSpeed, Sprite sprite)
+    {
+        speed += additionalSpeed;
+        _spriteRenderer.sprite = sprite;
+    }
+
 }
