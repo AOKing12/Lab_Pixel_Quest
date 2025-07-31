@@ -82,7 +82,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.7, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &6695355205098374417
 Rigidbody2D:
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b03ac191d66d74d810c51051b97f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 10
 --- !u!114 &3364895037188035071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28ba68825376b34a98119c72d0b8a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coinCounter: 0
   _health: 3
   RespawnPoint: {fileID: 0}
+  _MaxHealth: 3
 --- !u!114 &726371752410413896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -296648421, guid: fb8aff4da89b04a4291b74cd1b746c6b, type: 3}
+  m_Sprite: {fileID: -463957250, guid: cd1b3c4c039c1864ab045b36d919d5c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
