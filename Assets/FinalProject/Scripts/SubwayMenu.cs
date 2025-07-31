@@ -18,8 +18,5 @@ public class SubwayMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void UpgradeTrain()
-    {
-       // SceneManager.LoadScene(upgradeScene);
-    }
+   
 }
