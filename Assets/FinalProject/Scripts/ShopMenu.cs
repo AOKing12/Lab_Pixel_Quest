@@ -5,14 +5,14 @@ using UnityEngine;
 public class ShopMenu : MonoBehaviour
 {
     public GameObject Menu;
-    public PlayerStats playerStats;
+    private GameManager _gameManager;
     public PlayerMov Movement; 
     private int Cost = 0;
     public Sprite Sprite;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _gameManager = GameManager.Instance;
     }
 
     // Update is called once per frame
@@ -23,9 +23,9 @@ public class ShopMenu : MonoBehaviour
 
     public void Upgrade()
     {
-        if (playerStats._coinCounter >= Cost)
+        if (_gameManager.coinCount >= Cost)
         {
-            playerStats._coinCounter -= Cost;
+            _gameManager.SubtractCoins(Cost);
             Cost += 2;
             Movement.UpgradeTrain(2, Sprite);
         }

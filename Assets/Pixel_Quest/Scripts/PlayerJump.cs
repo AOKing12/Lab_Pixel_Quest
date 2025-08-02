@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     private bool _waterCheck;
     private string _waterTag = "Water";
