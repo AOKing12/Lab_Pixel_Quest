@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,18 +11,26 @@ public class PlayerStats : MonoBehaviour
     public int _health = 3;
     public Transform RespawnPoint;
     public int _MaxHealth = 3;
-
+    public ShopMenu shopMenu;
     private PlayerUIController _playerUIController;
+    private GameManager _gameManager;
 
     private void Start()
     {
+        coinsInLevel = GameObject.Find("Coins").transform.childCount;
+        _gameManager = GameManager.Instance;
+        if(_gameManager.coinCount > 0)
+        {
+            shopMenu.MenuOnOff(true);
+        } else         {
+            shopMenu.MenuOnOff(false);
+        }
+
         _playerUIController = GetComponent<PlayerUIController>();
         _playerUIController.StartUI();
         _playerUIController.UpdateHealth(_health, _MaxHealth);
         _playerUIController.UpdateCoin(_coinCounter + "/" + coinsInLevel);
-        coinsInLevel = GameObject.Find("Coins").transform.childCount;
- 
-        
+        _playerUIController.UpdateCoinGlobal("Coins: " + _gameManager.coinCount);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,7 +49,9 @@ public class PlayerStats : MonoBehaviour
                     _playerUIController.UpdateHealth(_health, _MaxHealth);
                     if (_health <= 0)
                     {
-                        string thisLevel = SceneManager.GetActiveScene().name;
+                        shopMenu.MenuOnOff(true);
+
+                        string thisLevel = "Level 1";
                         SceneManager.LoadScene(thisLevel);
                     }
                     else
@@ -51,8 +62,15 @@ public class PlayerStats : MonoBehaviour
                 }
             case "Coin":
                 {
+                    // Grand total coins
+                    _gameManager.AddCoins(1);
+                    // Update global coin count text
+                    _playerUIController.UpdateCoinGlobal("Coins: " + _gameManager.coinCount);
+
+                    // Coins in this level
                     _coinCounter++;
                     _playerUIController.UpdateCoin(_coinCounter + "/" + coinsInLevel);
+                    
                     Destroy(collision.gameObject);
                     break;
                 }

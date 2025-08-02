@@ -8,11 +8,13 @@ public class PlayerUIController : MonoBehaviour
 {
     public Image heartImage;
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI coinTextGlobal;
+    
     // Start is called before the first frame update
     public void StartUI()
     {
-        heartImage = GameObject.Find("heartImage").GetComponent<Image>();
-        coinText = GameObject.Find("coinText").GetComponent<TextMeshProUGUI>();
+       heartImage = GameObject.Find("heartImage").GetComponent<Image>();
+       coinText = GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,11 @@ public class PlayerUIController : MonoBehaviour
     public void UpdateCoin(string newText)
     {
         coinText.text = newText;
+    }
+
+    public void UpdateCoinGlobal(string newText)
+    {
+        coinTextGlobal.text = newText;
     }
 }
 

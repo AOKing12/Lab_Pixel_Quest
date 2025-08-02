@@ -8,7 +8,6 @@ public class NewScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    int varTwo = 3;
     public int speed = 3;
     public string nextLevel = "GeoQuest 2";
     // Start is called before the first frame update
