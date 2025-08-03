@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShopMenu : MonoBehaviour
@@ -7,12 +8,28 @@ public class ShopMenu : MonoBehaviour
     public GameObject Menu;
     private GameManager _gameManager;
     public PlayerMov Movement; 
-    private int Cost = 0;
+    private int chassisCost = 10;
     public Sprite Sprite;
+    private GameObject _upgradeBtn;
+    public TextMeshProUGUI coinTextGlobalUpgrade;
+    public TextMeshProUGUI upgradeCounter;
+    public TextMeshProUGUI speedCounter;
+
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = GameManager.Instance;
+        _upgradeBtn = GameObject.Find("Chassis Upgrade");
+        coinTextGlobalUpgrade.text = "Coins: " + _gameManager.coinCount;
+
+        if (_gameManager.coinCount < chassisCost)
+        {
+            UnityEngine.UI.Button upgradeBtn = _upgradeBtn.GetComponent<UnityEngine.UI.Button>();
+            if (upgradeBtn != null)
+            {
+                upgradeBtn.interactable = false;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -21,13 +38,56 @@ public class ShopMenu : MonoBehaviour
         
     }
 
-    public void Upgrade()
+    public void Upgrade(string type)
     {
-        if (_gameManager.coinCount >= Cost)
+        switch (type)
         {
-            _gameManager.SubtractCoins(Cost);
-            Cost += 2;
-            Movement.UpgradeTrain(2, Sprite);
+            case "chassis":
+                if (_gameManager.coinCount >= chassisCost)
+                {
+                    // Get the Button component attached to it
+                    UnityEngine.UI.Button upgradeBtn = _upgradeBtn.GetComponent<UnityEngine.UI.Button>();
+                    
+                    //Enable the button just in case it was disabled
+                    if (upgradeBtn != null)
+                    {
+                        upgradeBtn.interactable = true;
+                    }
+
+                    // Update the global coin count
+                    _gameManager.SubtractCoins(chassisCost);
+
+                    // Update the global coin count text
+                    coinTextGlobalUpgrade.text = "Coins: " + _gameManager.coinCount;
+
+                    if (Movement.speed == 10)
+                    {
+                        Movement.UpgradeTrain(5, Sprite);
+
+                        // Update the speed counter text
+                        speedCounter.text = "Speed: 15/25";
+                        // Update the upgrade counter text
+                        upgradeCounter.text = "1/2";
+                    } 
+                    else if (Movement.speed == 15)
+                    {
+                        Movement.UpgradeTrain(10, Sprite);
+
+                        // Update the speed counter text
+                        speedCounter.text = "Speed: 25/25";
+                        // Update the upgrade counter text
+                        upgradeCounter.text = "2/2";
+                    }
+
+                    if (_gameManager.coinCount < chassisCost || Movement.speed == 25)
+                    {
+                        if (upgradeBtn != null)
+                        {
+                            upgradeBtn.interactable = false;
+                        }
+                    }
+                }
+                break;
         }
     }
 
