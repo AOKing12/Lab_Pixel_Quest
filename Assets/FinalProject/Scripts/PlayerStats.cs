@@ -45,6 +45,7 @@ public class PlayerStats : MonoBehaviour
                 }
             case "Death":
                 {
+                    Debug.Log("Player Hit Death");
                     _health--;
                     _playerUIController.UpdateHealth(_health, _MaxHealth);
                     if (_health <= 0)
@@ -65,6 +66,11 @@ public class PlayerStats : MonoBehaviour
                     {
                         transform.position = RespawnPoint.position;
                     }
+                    break;
+                }
+            case "Stun":
+                {
+                    StartCoroutine(StunPlayer(2f));
                     break;
                 }
             case "Coin":
@@ -97,6 +103,36 @@ public class PlayerStats : MonoBehaviour
                     break;
                 }
                
+        }
+    }
+
+    private IEnumerator StunPlayer(float duration)
+    {
+        PlayerMov playerMov = GetComponent<PlayerMov>();
+        PlayerJump playerJump = GetComponent<PlayerJump>();
+
+        if (playerMov != null)
+        {
+            playerMov.setSpeed(0);
+        }
+            
+
+        if (playerJump != null)
+        {
+            playerJump.setCanJump(false);
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        if (playerMov != null)
+        {
+            playerMov.setSpeed(10); // restore to your default speed
+        }
+            
+
+        if (playerJump != null)
+        {
+            playerJump.setCanJump(true);
         }
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMov : MonoBehaviour
 {
-
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     public int speed = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,4 +31,8 @@ public class PlayerMov : MonoBehaviour
         _spriteRenderer.sprite = sprite;
     }
 
+    public void setSpeed(int newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
