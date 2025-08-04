@@ -45,6 +45,7 @@ public class PlayerStats : MonoBehaviour
                 }
             case "Death":
                 {
+                    Debug.Log("Player Hit Death");
                     _health--;
                     _playerUIController.UpdateHealth(_health, _MaxHealth);
                     if (_health <= 0)
@@ -69,7 +70,7 @@ public class PlayerStats : MonoBehaviour
                 }
             case "Stun":
                 {
-                    StunPlayer(2);
+                    StartCoroutine(StunPlayer(2f));
                     break;
                 }
             case "Coin":
@@ -121,7 +122,6 @@ public class PlayerStats : MonoBehaviour
             playerJump.setCanJump(false);
         }
 
-        Debug.Log("Player Stunned");
         yield return new WaitForSeconds(duration);
 
         if (playerMov != null)
@@ -134,6 +134,5 @@ public class PlayerStats : MonoBehaviour
         {
             playerJump.setCanJump(true);
         }
-        Debug.Log("Player unstuneed");
     }
 }
