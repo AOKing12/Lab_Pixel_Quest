@@ -22482,6 +22482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trash (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4157298826361500068, guid: d01e791e0eff983439d1b025c6365696, type: 3}
+      propertyPath: m_TagString
+      value: Stun
+      objectReference: {fileID: 0}
     - target: {fileID: 5182389507475838159, guid: d01e791e0eff983439d1b025c6365696, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.59

@@ -67,6 +67,11 @@ public class PlayerStats : MonoBehaviour
                     }
                     break;
                 }
+            case "Stun":
+                {
+                    StunPlayer(2);
+                    break;
+                }
             case "Coin":
                 {
                     // Grand total coins
@@ -98,5 +103,37 @@ public class PlayerStats : MonoBehaviour
                 }
                
         }
+    }
+
+    private IEnumerator StunPlayer(float duration)
+    {
+        PlayerMov playerMov = GetComponent<PlayerMov>();
+        PlayerJump playerJump = GetComponent<PlayerJump>();
+
+        if (playerMov != null)
+        {
+            playerMov.setSpeed(0);
+        }
+            
+
+        if (playerJump != null)
+        {
+            playerJump.setCanJump(false);
+        }
+
+        Debug.Log("Player Stunned");
+        yield return new WaitForSeconds(duration);
+
+        if (playerMov != null)
+        {
+            playerMov.setSpeed(10); // restore to your default speed
+        }
+            
+
+        if (playerJump != null)
+        {
+            playerJump.setCanJump(true);
+        }
+        Debug.Log("Player unstuneed");
     }
 }
