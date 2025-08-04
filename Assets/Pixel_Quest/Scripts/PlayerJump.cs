@@ -16,7 +16,6 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundMask;
     private bool _groundCheck;
     public float jumpforce = 10;
-    public bool canJump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +46,7 @@ public class PlayerJump : MonoBehaviour
 
         _groundCheck = Physics2D.OverlapCapsule(feetCollider.position, new Vector2(CapsuleHeight, CapsuleRadius), CapsuleDirection2D.Horizontal, 0, groundMask);
 
-        if (Input.GetKeyDown(KeyCode.Space) && (_groundCheck || _waterCheck) && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) && (_groundCheck || _waterCheck))
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpforce);
         }
@@ -57,10 +56,7 @@ public class PlayerJump : MonoBehaviour
         }
     }
 
-    public void setCanJump(bool boolean)
-    {
-        canJump = boolean;
-    }
+
 
 }
     

@@ -12,8 +12,6 @@ TagManager:
   - Bullet
   - Enemy
   - BigBullet
-  - Stun
-  - Death + Stun
   layers:
   - Default
   - TransparentFX
