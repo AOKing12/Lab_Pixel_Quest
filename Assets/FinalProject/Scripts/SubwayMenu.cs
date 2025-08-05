@@ -13,16 +13,6 @@ public class SubwayMenu : MonoBehaviour
         SceneManager.LoadScene(startScene);
     }
 
-    public void LoadHowToPlay()
-    {
-        SceneManager.LoadScene("Tutorial");
-    }
-
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("Opening Scene");
-    }
-
     public void QuitGame()
     {
         Application.Quit();

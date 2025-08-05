@@ -53,7 +53,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Hands-On Homework #3/Scenes/HW3_Level2.unity
     guid: 751f2cf3d5637394b971326bc57d1437
-  - enabled: 1
-    path: Assets/FinalProject/Scenes/Tutorial.unity
-    guid: 024fd5a0eda953c43b80ccdb98a278a4
   m_configObjects: {}
