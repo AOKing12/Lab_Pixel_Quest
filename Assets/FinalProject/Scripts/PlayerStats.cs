@@ -102,6 +102,31 @@ public class PlayerStats : MonoBehaviour
                     RespawnPoint.position = collision.transform.Find("Point").position;
                     break;
                 }
+            case "Death + Stun":
+                {
+                    StartCoroutine(StunPlayer(2f));
+                    _health--;
+                    _playerUIController.UpdateHealth(_health, _MaxHealth);
+                    if (_health <= 0)
+                    {
+                        if (_gameManager.coinCount > 0)
+                        {
+                            shopMenu.MenuOnOff(true);
+                        }
+                        else
+                        {
+                            shopMenu.MenuOnOff(false);
+                        }
+
+                        string thisLevel = "Level 1";
+                        SceneManager.LoadScene(thisLevel);
+                    }
+                    else
+                    {
+                        transform.position = RespawnPoint.position;
+                    }
+                    break;
+                }
                
         }
     }
