@@ -10,14 +10,18 @@ public class ShopMenu : MonoBehaviour
     public PlayerMov Movement; 
     private int chassisCost = 10;
     public Sprite Sprite;
+    public Sprite SpriteUpgrade1;
+    public Sprite SpriteUpgrade2;
     private GameObject _upgradeBtn;
     public TextMeshProUGUI coinTextGlobalUpgrade;
     public TextMeshProUGUI upgradeCounter;
     public TextMeshProUGUI speedCounter;
+    private GameObject _player;
 
     // Start is called before the first frame update
     void Start()
     {
+        _player = GameObject.Find("Player");
         _gameManager = GameManager.Instance;
         _upgradeBtn = GameObject.Find("Chassis Upgrade");
         coinTextGlobalUpgrade.text = "Coins: " + _gameManager.coinCount;
@@ -62,16 +66,17 @@ public class ShopMenu : MonoBehaviour
 
                     if (Movement.speed == 10)
                     {
-                        Movement.UpgradeTrain(5, Sprite);
+                        Movement.UpgradeTrain(5, SpriteUpgrade1);
 
                         // Update the speed counter text
                         speedCounter.text = "Speed: 15/25";
                         // Update the upgrade counter text
                         upgradeCounter.text = "1/2";
+
                     } 
                     else if (Movement.speed == 15)
                     {
-                        Movement.UpgradeTrain(10, Sprite);
+                        Movement.UpgradeTrain(10, SpriteUpgrade2);
 
                         // Update the speed counter text
                         speedCounter.text = "Speed: 25/25";

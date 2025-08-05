@@ -29,6 +29,7 @@ public class PlayerMov : MonoBehaviour
     {
         speed += additionalSpeed;
         _spriteRenderer.sprite = sprite;
+        Debug.Log("UpgradeTrain: Setting sprite to " + sprite?.name);
     }
 
     public void setSpeed(int newSpeed)
