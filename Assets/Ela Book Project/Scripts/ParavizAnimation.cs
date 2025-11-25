@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParavaizAnimation : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    // Start is called before the first frame update
+    public float speed = 5f;
+    private Rigidbody2D rb;
+    private Vector2 movement;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float xMovement = Input.GetAxis("Horizontal");
-        float yMovement = Input.GetAxis("Vertical");
+        // Get input
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
 
-        rb.velocity = new Vector2(xMovement, rb.velocity.y);
-        rb.velocity = new Vector2(rb.velocity.x, yMovement);
+    void FixedUpdate()
+    {
+        // Apply movement using physics
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 }
