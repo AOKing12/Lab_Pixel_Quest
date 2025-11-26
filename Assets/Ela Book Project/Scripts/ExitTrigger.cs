@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitTrigger : MonoBehaviour
 {
@@ -11,7 +12,14 @@ public class ExitTrigger : MonoBehaviour
         {
             // Find the EscapeTimer in the scene and call CompleteLevel
             Debug.Log("Player reached exit. Completing level...");
-            FindObjectOfType<EscapeTimer>().CompleteLevel(nextSceneName); 
+            if (FindObjectOfType<EscapeTimer>() != null)
+            {
+                FindObjectOfType<EscapeTimer>().CompleteLevel(nextSceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(nextSceneName);
+            }
         }
     }
 }

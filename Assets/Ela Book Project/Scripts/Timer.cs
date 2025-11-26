@@ -24,6 +24,7 @@ public class EscapeTimer : MonoBehaviour
             if (timeRemaining <= 0)
             {
                 levelComplete = true;
+                GameSession.lastLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
                 GameManager2.instance.GameOver(); // Call GameManager2
             }
         }
